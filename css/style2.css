@@ -139,10 +139,7 @@
     margin-top: -1px; /* Overlap border if needed */
 }
 
-.service-details-panel.is-active {
-    /* Height is set dynamically by JavaScript to enable slide effect */
-    /* The active class serves mainly as a flag */
-}
+
 
 .service-details-panel .panel-content {
     padding: 2rem 2.5rem; /* Inner padding for content */
@@ -196,4 +193,144 @@
 .service-detail-item {
     padding-top: initial;
     padding-bottom: initial;
+}
+/* Responsive adjustment for mobile screens */
+@media (max-width: 768px) {
+    
+    /* ... (keep your existing mobile rules here) ... */
+        .navbar{ 
+            width: 100%;
+        }
+    /* Ensure the Name/Desc and Link columns stack and use full width */
+    .service-content-col > .columns > .column {
+        /* Force to full width on mobile, ensuring they stack vertically */
+        width: 100% !important; 
+        /* Adjust horizontal padding to match overall layout */
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+    
+    /* Force the link's container to align its content to the left on mobile */
+    .service-content-col .has-text-right-desktop {
+        text-align: left !important;
+    }
+    
+    /* Add vertical space (margin) below the service description (subtitle) 
+       so the "View Details" link sits clearly below it. */
+    .service-content-col .subtitle {
+        margin-bottom: 1rem !important; 
+    }
+}
+/* Responsive adjustment for mobile screens */
+@media (max-width: 768px) {
+    
+    /* 1. HIDE the service description (subtitle) to move the link up */
+    .service-content-col .subtitle {
+        display: none !important;
+    }
+
+    /* 2. Ensure the link container aligns left on mobile (you likely have this already) */
+    .service-content-col .has-text-right-desktop {
+        text-align: left !important;
+        /* Reduce top padding if the link is in a separate column */
+        padding-top: 0; 
+    }
+    
+    /* 3. Add a small margin below the service name (title) to separate it from the link */
+    .service-content-col .title {
+        margin-bottom: 0.5rem !important; /* Adjust this gap as needed */
+    }
+    
+    /* 4. Ensure the link is treated as a block for correct spacing */
+    .service-arrow-link {
+        display: inline-block;
+        margin-bottom: 1rem; /* Add space below the link before the next element/row */
+    }
+    
+    /* Ensure the nested columns still stack correctly (if needed) */
+    .service-content-col > .columns > .column {
+        width: 100% !important; 
+    }
+}
+/* Responsive adjustment for mobile screens */
+@media (max-width: 768px) {
+    
+    /* HIDE the service description (subtitle) to move the link up */
+    .service-content-col .subtitle {
+        display: none !important;
+    }
+
+    /* Ensure the title is snug to the link */
+    .service-content-col .title {
+        margin-bottom: 0.5rem !important; /* Small gap between Title and Link */
+    }
+
+    /* Force the link's container to align its content to the left on mobile */
+    .service-content-col .has-text-right-desktop {
+        text-align: left !important;
+        /* Ensure no extra top padding is pushing it down */
+        padding-top: 0; 
+    }
+    
+    /* Ensure the link is treated as a block for correct spacing */
+    .service-arrow-link {
+        display: inline-block;
+        margin-bottom: 1rem; /* Space below the link before the next service row */
+    }
+    
+    /* Ensure the nested columns still stack correctly */
+    .service-content-col > .columns > .column {
+        width: 100% !important; 
+    }
+}
+/* Styling for the Detail Panel Header Area on Mobile/Tablet */
+@media (max-width: 1023px) { 
+
+    /* Ensure the main descriptive text takes full width */
+    .service-details-panel .panel-content > p:first-child {
+        width: 100%;
+        display: block; /* Important: Treat as a full block element */
+        text-align: left !important; /* Align the text to the left */
+        margin-bottom: 0.5rem !important; /* Reduce space before the button */
+    }
+
+    /* Ensure the button container takes full width and aligns the button left */
+    .service-details-panel .has-text-centered.mt-4 {
+        width: 100%;
+        display: block; /* Treat as a full block element */
+        text-align: left !important; /* Crucial: Align the button left */
+        margin-top: 0.5rem !important; /* Adjust space above the button */
+    }
+}
+ 
+/* MOBILE + TABLET (Title + View Details only) */
+@media (max-width: 1024px) {
+
+    /* Hide the service description (subtitle) */
+    .service-content-col .subtitle {
+        display: none !important;
+    }
+
+    /* Stack title + button */
+    .service-content-col .columns {
+        flex-direction: column !important;
+    }
+
+    /* Make title full width */
+    .service-content-col .columns > .column:first-child {
+        width: 100% !important;
+    }
+
+    /* Move the View Details link immediately under the title */
+    .service-content-col .columns > .column:last-child {
+        width: 100% !important;
+        text-align: left !important;
+        padding-top: 0 !important;
+        margin-top: 0.3rem !important;
+    }
+
+    .service-arrow-link {
+        display: inline-block;
+        margin-bottom: 0.3rem;
+    }
 }
